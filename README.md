@@ -1,8 +1,10 @@
-# POPSLoader
-
-<p align="center">
-  <img src="banner.jpg" alt="POPSLoader Banner" width="800"/>
+<p align="center"><img width="1774" height="887" alt="POPSLoader" src="https://github.com/user-attachments/assets/0a5ded44-3012-4608-bddf-9adbf1173cc6" />
+<img width="400" height="92" alt="LLMdevelopment" src="https://github.com/user-attachments/assets/9a3c3610-271d-4f9b-959b-bed32bcb9461" />
 </p>
+
+---
+
+# POPSLoader
 
 <p align="center">
   <a href="https://mega.nz/folder/W9wXyLjD#8hk7Wv-EEPfKPTDN-guKdQ"><img src="https://img.shields.io/badge/MEGA-Rolling%20Archive-%23D90007?style=flat&logo=mega&logoColor=white" alt="MEGA Rolling Archive"/></a>
@@ -10,7 +12,7 @@
 
 POPSLoader is a graphical PlayStation 2 homebrew launcher designed to easily browse and launch your PS1 games (using POPStarter) from various storage devices. It features a clean, responsive layout, cover art support, sound effects, an on-screen keyboard, and direct memory card exit shortcuts.
 
-The current public release is **1.1.0** (released 2026-07-21). Rolling test artifacts continue to be published from the `dev` branch (see [Development & Building](#development--building)).
+The current public release is **1.2.0** (released 2026-08-03). Rolling test artifacts continue to be published from the `dev` branch (see [Development & Building](#development--building)).
 
 ---
 
