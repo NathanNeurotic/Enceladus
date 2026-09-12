@@ -44,12 +44,12 @@
     <a href="https://nathanneurotic.github.io/Open-PS2-Loader">RiptOPL (OPL) docs ↗</a>
     <a href="https://ps2homebrewstore.com">PS2 Homebrew Store ↗</a>
   </nav>
-  <main class="content"><h1>AGENTS — orientation &amp; high-risk surfaces</h1><p class="prov-inline"><a href="../popsloader.html">&larr; POPSLoader docs</a> · <a href="https://github.com/NathanNeurotic/POPSLoader/blob/dev/AGENTS.md">view on GitHub ↗</a></p><p>Last updated: 2026-07-27 (rolling <code>dev</code> = <code>v1.1.1-dev</code>; released line 1.1.0)</p>
+  <main class="content"><h1>AGENTS — orientation &amp; high-risk surfaces</h1><p class="prov-inline"><a href="../popsloader.html">&larr; POPSLoader docs</a> · <a href="https://github.com/NathanNeurotic/POPSLoader/blob/dev/AGENTS.md">view on GitHub ↗</a></p><p>Last updated: 2026-09-11 (release 1.2.1; master, dev, and experimental aligned at this cut)</p>
 <p>Operational guidance and entry point for AI agents (cloud or interactive) working in this repository. This file is self-contained: it absorbs the former <code>AGENTS_START_HERE.md</code> orientation content. For current code/hardware status, behavioral invariants, preservation contracts, and the canonical known-issues list, defer to <strong><code>STATE.md</code></strong> rather than restating them here.</p>
 <h2 id="start-here-orientation">Start Here / Orientation</h2>
 <p>POPSLoader is a PS2 launcher for POPStarter built on Enceladus runtime pieces, with behavior primarily orchestrated by <strong>embedded Lua</strong> modules (<code>system.lua</code>, <code>ui.lua</code>, <code>images.lua</code>). The Lua is bin2c'd into the EE ELF at build time, so a <em>runtime</em> Lua error (nil global, type error, <strong>load-order</strong> error) is invisible to <code>luac -p</code> and to CI and only surfaces on real PS2 / PCSX2. (<code>pops_profiles.lua</code> was removed 2026-07-13 with the profile-preset system.)</p>
 <ul>
-<li>Released line: <strong>1.1.0</strong> (2026-07-21; previously 1.0.1 2026-07-13, 1.0.0 2026-07-10, BETA-12 2026-06-18). Cut from <code>dev</code> via the tree-adopting merge.</li>
+<li>Released line: <strong>1.2.1</strong> (2026-09-11). At this cut, <code>master</code>, <code>dev</code>, and <code>experimental</code> share one commit and the <code>v1.2.1</code> stamp.</li>
 <li>Dev branch: <strong><code>dev</code></strong> (the active/rolling branch; <code>BETA-12-PLAY</code> is now <strong>archival/frozen</strong>). The rolling-release workflow publishes from <code>dev</code>.</li>
 <li>Testers: maintainer + Nuno (primary), CosmicScale (secondary), plus <strong>provato</strong> and <strong>nuno6573</strong>. Agents cannot run hardware tests — claims of hardware verification must cite a recorded result in <code>QA_REGRESSION_MATRIX.md</code>.</li>
 </ul>

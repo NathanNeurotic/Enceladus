@@ -44,16 +44,18 @@
     <a href="https://nathanneurotic.github.io/Open-PS2-Loader">RiptOPL (OPL) docs ↗</a>
     <a href="https://ps2homebrewstore.com">PS2 Homebrew Store ↗</a>
   </nav>
-  <main class="content"><h1>README — Overview</h1><p class="prov-inline"><a href="../popsloader.html">&larr; POPSLoader docs</a> · <a href="https://github.com/NathanNeurotic/POPSLoader/blob/dev/README.md">view on GitHub ↗</a></p><p align="center">
-  <img src="https://raw.githubusercontent.com/NathanNeurotic/POPSLoader/dev/banner.jpg" alt="POPSLoader Banner" width="800"/>
+  <main class="content"><h1>README — Overview</h1><p class="prov-inline"><a href="../popsloader.html">&larr; POPSLoader docs</a> · <a href="https://github.com/NathanNeurotic/POPSLoader/blob/dev/README.md">view on GitHub ↗</a></p><p align="center"><img width="1774" height="887" alt="POPSLoader" src="https://github.com/user-attachments/assets/0a5ded44-3012-4608-bddf-9adbf1173cc6" />
+<img width="400" height="92" alt="LLMdevelopment" src="https://github.com/user-attachments/assets/9a3c3610-271d-4f9b-959b-bed32bcb9461" />
 </p>
 
+<hr />
+<h1 id="popsloader">POPSLoader</h1>
 <p align="center">
   <a href="https://mega.nz/folder/W9wXyLjD#8hk7Wv-EEPfKPTDN-guKdQ"><img src="https://img.shields.io/badge/MEGA-Rolling%20Archive-%23D90007?style=flat&logo=mega&logoColor=white" alt="MEGA Rolling Archive"/></a>
 </p>
 
 <p>POPSLoader is a graphical PlayStation 2 homebrew launcher designed to easily browse and launch your PS1 games (using POPStarter) from various storage devices. It features a clean, responsive layout, cover art support, sound effects, an on-screen keyboard, and direct memory card exit shortcuts.</p>
-<p>The current public release is <strong>1.1.0</strong> (released 2026-07-21). Rolling test artifacts continue to be published from the <code>dev</code> branch (see <a href="#development-building">Development &amp; Building</a>).</p>
+<p>The current public release is <strong><a href="https://github.com/NathanNeurotic/POPSLoader/releases/tag/1.2.1">1.2.1</a></strong> (2026-09-11). At this release cut, <code>master</code>, <code>dev</code>, and <code>experimental</code> share the same commit and version stamp. Floating channel artifacts continue to publish from their respective branches.</p>
 <hr />
 <h2 id="highlights">Highlights</h2>
 <p>POPSLoader's stable backbone, hardware-confirmed across an extended validation pass:</p>
@@ -475,7 +477,7 @@ Game compatibility and drive loading performance may vary depending on your spec
 <li><strong>This is the most common reason art does not appear after updating.</strong> The PNG filename must match the <code>.VCD</code> game filename with the OPL <code>_COV</code> suffix (e.g. <code>Crash Bandicoot.VCD</code> requires <code>Crash Bandicoot_COV.png</code>). <strong>The <code>_COV</code> is not optional and will not be made optional:</strong> it is OPL's convention, and matching it is what lets one art folder serve both OPL and POPSLoader. Accepting a bare <code>&lt;name&gt;.png</code> here would break that sharing. Note the details sidecar does NOT take the suffix -- it is <code>&lt;name&gt;.txt</code> -- so it is easy to get one right and the other wrong. Only the exact game filename is tried, so a multi-disc game needs one cover <strong>per disc</strong> (<code>Game (Disc 1)_COV.png</code>, <code>Game (Disc 2)_COV.png</code>). A single shared cover for the whole set no longer works.</li>
 <li>Place the cover in a top-level <strong><code>ART/</code></strong> folder at the device root. That is the only location that is read; there is no setting and no fallback, so a cover in <code>POPS/</code> or <code>POPS/ART/</code> will not show. On the internal HDD covers live in <code>__common/POPS/ART/</code>.</li>
 <li>Confirm cover-art preview is enabled in <em>Settings → Game List → Cover art</em> (default <strong>On</strong>). Square is not bound in the game list.</li>
-<li>For best compatibility and performance, use 200x200 pixel, 8-bit-per-channel RGBA PNG images. Release 1.2.0 can render RGB PNG covers invisible; adding an opaque alpha channel is the workaround (<a href="https://github.com/NathanNeurotic/POPSLoader/issues/575">issue #575</a>). The RGB decoder correction is tracked in <a href="state.html">STATE.md</a>.</li>
+<li>For best compatibility and performance, use 200x200 pixel, 8-bit-per-channel RGBA PNG images. Release 1.2.0 can render RGB PNG covers invisible; adding an opaque alpha channel is the workaround (<a href="https://github.com/NathanNeurotic/POPSLoader/issues/575">issue #575</a>). Version 1.2.1 includes the RGB decoder correction; hardware validation is tracked in <a href="state.html">STATE.md</a>.</li>
 </ul>
 <h3 id="bootelf-exit-option-fails-or-hangs">BOOT.ELF exit option fails or hangs</h3>
 <ul>

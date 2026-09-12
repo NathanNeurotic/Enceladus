@@ -44,10 +44,37 @@
     <a href="https://nathanneurotic.github.io/Open-PS2-Loader">RiptOPL (OPL) docs ↗</a>
     <a href="https://ps2homebrewstore.com">PS2 Homebrew Store ↗</a>
   </nav>
-  <main class="content"><h1>Experimental notes</h1><p class="prov-inline"><a href="../popsloader.html">&larr; POPSLoader docs</a> · <a href="https://github.com/NathanNeurotic/POPSLoader/blob/dev/EXPERIMENTAL_NOTES.md">view on GitHub ↗</a></p><p><strong>This is the opt-in EXPERIMENTAL channel.</strong> It exists so testers can try riskier changes in isolation, without them reaching anyone who did not ask for it. The public release (<strong>1.1.0</strong>) and the rolling test build are both untouched by anything here.</p>
-<p><strong>How to tell you are running it:</strong> Settings, then About: the Version row reads <strong>v1.1.1-dev-EXP80</strong>. The check is simple: a version ending in <strong>-EXP80</strong> = this build; <strong>-EXP79</strong> or lower = an older experimental, please update; plain <strong>v1.1.1-dev</strong> = the rolling build; <strong>v1.1.0</strong> = the public release.</p>
-<p><strong>File size check:</strong> if <em>About</em> does not show EXP80, the file on your card was not replaced.</p>
-<p><strong>How to go back:</strong> reinstall the latest entry on the Releases page. Nothing here changes your settings, your <code>POPS</code> folders, or your games, so switching back and forth is safe.</p>
+  <main class="content"><h1>Experimental notes</h1><p class="prov-inline"><a href="../popsloader.html">&larr; POPSLoader docs</a> · <a href="https://github.com/NathanNeurotic/POPSLoader/blob/dev/EXPERIMENTAL_NOTES.md">view on GitHub ↗</a></p><p>At the 1.2.1 release cut, <code>master</code>, <code>dev</code>, and <code>experimental</code> share the same source commit. All three builds show <strong>v1.2.1</strong> in Settings → About; there is no EXP suffix for this cut.</p>
+<p>This release includes the RGB PNG alpha correction (#575), MX4SIO cover/details path correction (#570), and SMB POPStarter handoff correction (#571). Host tests and CI do not replace PS2 testing; hardware validation for these changes remains pending. See <a href="state.html">STATE.md</a> and <a href="qa-regression-matrix.html">QA_REGRESSION_MATRIX.md</a>.</p>
+<p>The versioned release is <a href="https://github.com/NathanNeurotic/POPSLoader/releases/tag/1.2.1">POPSLoader 1.2.1</a>. Floating channel builds may advance after this cut.</p>
+<hr />
+<h2 id="historical-channel-notes">Historical channel notes</h2>
+<p>The entries below describe earlier builds and their validation at the time.</p>
+<h2 id="new-in-exp93-cover-art-works-on-mx4sio-again">New in EXP93: cover art works on MX4SIO again</h2>
+<p>If you run your games from an MX4SIO SD adapter and your cover art stopped<br />
+showing, this build fixes it. Nothing on your card needs to change.</p>
+<p>What went wrong: when the loader reads your card over MX4SIO it names that drive<br />
+using a label with a number inside it. A check in our code was written expecting<br />
+the number only at the end of the name, so it did not recognise the label and<br />
+lost track of which drive your games were on. Launching a game uses a different<br />
+route, so every game still booted normally, which is why this looked like an art<br />
+problem rather than a drive problem. The cover lookup uses the route that broke,<br />
+so it went looking in the wrong place and found nothing.</p>
+<p>Two things come back with it on MX4SIO, both from the same one line fix:</p>
+<ul>
+<li>Cover art, read as always from an <code>ART</code> folder at the top level of the card,<br />
+    named <code>&lt;game filename&gt;_COV.png</code>.</li>
+<li>The per game text blurb, from <code>&lt;game filename&gt;.txt</code> in that same <code>ART</code><br />
+    folder, when <em>Game details</em> is turned on in Settings. On MX4SIO that had not<br />
+    been requested at all, so it could never appear.</li>
+</ul>
+<p>Worth repeating because it comes up every time: art placed next to the <code>.VCD</code><br />
+files is not read any more, on any device. There is one location, the <code>ART</code><br />
+folder at the top of the drive, and the <code>_COV</code> on the end of the PNG name is<br />
+required. That is OPL's convention, so one art folder can serve both programs.</p>
+<p>Reported by Wink72, who narrowed it down by moving the same SD card between an<br />
+MX4SIO and a MemCard PRO and noticing the art appeared in one and not the other.<br />
+That comparison is what made it findable.</p>
 <hr />
 <h2 id="new-in-exp80-the-network-settings-now-are-the-popstarter-files">New in EXP80: the network settings now ARE the POPSTARTER files</h2>
 <p>Only relevant if you play games off a network share, but if you do, please read<br />
