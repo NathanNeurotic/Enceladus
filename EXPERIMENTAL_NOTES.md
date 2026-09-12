@@ -1,12 +1,44 @@
 # POPSLoader: Experimental Build 🧪
 
-**This is the opt-in EXPERIMENTAL channel.** It exists so testers can try riskier changes in isolation, without them reaching anyone who did not ask for it. The public release (**1.1.0**) and the rolling test build are both untouched by anything here.
+**This is the opt-in EXPERIMENTAL channel.** It exists so testers can try riskier changes in isolation, without them reaching anyone who did not ask for it. The public release (**1.2.0**) and the rolling test build are both untouched by anything here.
 
-**How to tell you are running it:** Settings, then About: the Version row reads **v1.1.1-dev-EXP80**. The check is simple: a version ending in **-EXP80** = this build; **-EXP79** or lower = an older experimental, please update; plain **v1.1.1-dev** = the rolling build; **v1.1.0** = the public release.
+**How to tell you are running it:** Settings, then About: the Version row reads **v1.1.1-dev-EXP93**. The check is simple: a version ending in **-EXP93** = this build; **-EXP92** or lower = an older experimental, please update; plain **v1.1.1-dev** with no EXP on the end = the rolling build; **v1.2.0** = the public release.
 
-**File size check:** if *About* does not show EXP80, the file on your card was not replaced.
+**File size check:** if *About* does not show EXP93, the file on your card was not replaced.
 
 **How to go back:** reinstall the latest entry on the Releases page. Nothing here changes your settings, your `POPS` folders, or your games, so switching back and forth is safe.
+
+---
+
+## New in EXP93: cover art works on MX4SIO again
+
+If you run your games from an MX4SIO SD adapter and your cover art stopped
+showing, this build fixes it. Nothing on your card needs to change.
+
+What went wrong: when the loader reads your card over MX4SIO it names that drive
+using a label with a number inside it. A check in our code was written expecting
+the number only at the end of the name, so it did not recognise the label and
+lost track of which drive your games were on. Launching a game uses a different
+route, so every game still booted normally, which is why this looked like an art
+problem rather than a drive problem. The cover lookup uses the route that broke,
+so it went looking in the wrong place and found nothing.
+
+Two things come back with it on MX4SIO, both from the same one line fix:
+
+*   Cover art, read as always from an `ART` folder at the top level of the card,
+    named `<game filename>_COV.png`.
+*   The per game text blurb, from `<game filename>.txt` in that same `ART`
+    folder, when *Game details* is turned on in Settings. On MX4SIO that had not
+    been requested at all, so it could never appear.
+
+Worth repeating because it comes up every time: art placed next to the `.VCD`
+files is not read any more, on any device. There is one location, the `ART`
+folder at the top of the drive, and the `_COV` on the end of the PNG name is
+required. That is OPL's convention, so one art folder can serve both programs.
+
+Reported by Wink72, who narrowed it down by moving the same SD card between an
+MX4SIO and a MemCard PRO and noticing the art appeared in one and not the other.
+That comparison is what made it findable.
 
 ---
 
