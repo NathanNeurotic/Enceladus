@@ -30,6 +30,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      - name: Test PNG decoder pixels and alpha
+        shell: bash
+        run: |
+          set -eu
+          sudo apt-get update -qq
+          sudo apt-get install -y g++ pkg-config libpng-dev
+          python3 tools/png_decoder_harness.py
       - name: Run the host harness
         shell: bash
         run: |

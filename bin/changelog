@@ -1,3 +1,6 @@
+[Unreleased]
+- Fix: decode RGB PNG covers into 32-bit textures with explicit alpha, avoiding invisible covers with alpha blending (#575). Hardware validation pending.
+
 [1.0.1] - July 13th, 2026
 A fix and polish release: the two storage-init fixes suspected behind the "No USB backend detected" reports, plus the full settings-UI review from R3Z3N (two rounds) and UI localization. Nothing in this release changes the launch engine; the D-10/D-14/D-15 launch paths are untouched.
 
