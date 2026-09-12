@@ -25,6 +25,15 @@ This matrix tracks current behavior across:
 
 This file is the authoritative detailed run ledger for CI and hardware outcomes. The other root docs should summarize the active state and point here for chronology.
 
+## Issue #575: RGB PNG cover alpha (2026-09-11)
+
+| Artifact / environment | Result | Evidence / next check |
+|---|---|---|
+| Official 1.2.0; SCPH-70004; SMBv1 | Reporter: RGB invisible, equivalent RGBA visible | [Issue #575](https://github.com/NathanNeurotic/POPSLoader/issues/575); 200x200 non-interlaced PNGs, RGB pixels unchanged by conversion. Same distinction reported on synchronous commit `93ae02f`. |
+| Host decoder, Ubuntu / libpng, ASan + UBSan | PASS: 60 cases | Real decoder executed for RGB/RGBA, Adam7, 16-bit RGB, grayscale, tRNS and indexed images; size limits and truncated input checked. File/memory and immediate/delayed paths covered. Original decoder fails the first RGB texture-format assertion. |
+| Local pinned `ps2dev/ps2dev:v2.0.0` build; base `a78bb942` plus CT32 correction | PASS: `make clean elfloader all`; Lua harness 55/55; docs check | Test ELF SHA256 `28b59a2e9d7afb97c22640c9596022fed53eb450c9d9b5cb2cb40037583c5ec6`. Local build, not a published CI artifact. |
+| CT32 RGB decoder correction | Unknown (verify on hardware) | Retest the same RGB/RGBA pair; check RGBA transparency, grayscale and indexed covers, navigating between games and changing video mode. Host decoder checks cannot establish GS rendering or device I/O. |
+
 ## Automated CI Gates
 
 These gates are defined by `.github/workflows/compilation.yml`. The separate `.github/workflows/opencode.yml` workflow only runs comment-triggered AI assistance and is not a build, package, runtime, or hardware validation gate.
