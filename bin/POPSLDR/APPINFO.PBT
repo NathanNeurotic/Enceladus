@@ -9,7 +9,7 @@
 #
 # Source: https://www.psx-place.com/resources/popsloader.1396/
 SET "TITLE" "[PS1] POPSLoader"
-SET "VERSION" "1.0.0 Rev5"
+SET "VERSION" "1.2.1"
 SET "AUTHOR" "https://israpps.github.io/"
 SET "DESC" "POPSloader is a GUI for POPSTARTER launcher which lets you play your PS1 games in .VCD format from HDD or USB."
 SET "ELF" "POPSLOADER.ELF"

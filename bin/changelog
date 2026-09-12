@@ -1,5 +1,10 @@
-[Unreleased]
-- Fix: decode RGB PNG covers into 32-bit textures with explicit alpha, avoiding invisible covers with alpha blending (#575). Hardware validation pending.
+[1.2.1] - September 11th, 2026
+- Fix: RGB PNG covers use 32-bit textures with explicit alpha, avoiding invisible covers with alpha blending (#575).
+- Fix: MX4SIO cover and details paths recognize device names containing digits (#570).
+- Fix: SMB POPStarter launch preserves the live share and uses the embedded loader without an IOP reset (#571).
+- Test: 60 PNG decoder cases run under ASan/UBSan in CI; the Lua harness contains 55 checks.
+- Release: master, dev, and experimental align on the same commit and 1.2.1 stamp.
+- Hardware: these fixes are source/host-tested; PS2 validation remains pending. See QA_REGRESSION_MATRIX.md.
 
 [1.0.1] - July 13th, 2026
 A fix and polish release: the two storage-init fixes suspected behind the "No USB backend detected" reports, plus the full settings-UI review from R3Z3N (two rounds) and UI localization. Nothing in this release changes the launch engine; the D-10/D-14/D-15 launch paths are untouched.

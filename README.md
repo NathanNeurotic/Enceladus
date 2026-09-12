@@ -12,7 +12,7 @@
 
 POPSLoader is a graphical PlayStation 2 homebrew launcher designed to easily browse and launch your PS1 games (using POPStarter) from various storage devices. It features a clean, responsive layout, cover art support, sound effects, an on-screen keyboard, and direct memory card exit shortcuts.
 
-The current public release is **1.2.0** (released 2026-08-03). Rolling test artifacts continue to be published from the `dev` branch (see [Development & Building](#development--building)).
+The current public release is **[1.2.1](https://github.com/NathanNeurotic/POPSLoader/releases/tag/1.2.1)** (2026-09-11). At this release cut, `master`, `dev`, and `experimental` share the same commit and version stamp. Floating channel artifacts continue to publish from their respective branches.
 
 ---
 
@@ -255,7 +255,7 @@ Use the `IRX/` subfolder if you want the drivers kept but not tangled up with wh
 *   **This is the most common reason art does not appear after updating.** The PNG filename must match the `.VCD` game filename with the OPL `_COV` suffix (e.g. `Crash Bandicoot.VCD` requires `Crash Bandicoot_COV.png`). **The `_COV` is not optional and will not be made optional:** it is OPL's convention, and matching it is what lets one art folder serve both OPL and POPSLoader. Accepting a bare `<name>.png` here would break that sharing. Note the details sidecar does NOT take the suffix -- it is `<name>.txt` -- so it is easy to get one right and the other wrong. Only the exact game filename is tried, so a multi-disc game needs one cover **per disc** (`Game (Disc 1)_COV.png`, `Game (Disc 2)_COV.png`). A single shared cover for the whole set no longer works.
 *   Place the cover in a top-level **`ART/`** folder at the device root. That is the only location that is read; there is no setting and no fallback, so a cover in `POPS/` or `POPS/ART/` will not show. On the internal HDD covers live in `__common/POPS/ART/`.
 *   Confirm cover-art preview is enabled in *Settings → Game List → Cover art* (default **On**). Square is not bound in the game list.
-*   For best compatibility and performance, use 200x200 pixel, 8-bit-per-channel RGBA PNG images. Release 1.2.0 can render RGB PNG covers invisible; adding an opaque alpha channel is the workaround ([issue #575](https://github.com/NathanNeurotic/POPSLoader/issues/575)). The RGB decoder correction is tracked in [STATE.md](STATE.md).
+*   For best compatibility and performance, use 200x200 pixel, 8-bit-per-channel RGBA PNG images. Release 1.2.0 can render RGB PNG covers invisible; adding an opaque alpha channel is the workaround ([issue #575](https://github.com/NathanNeurotic/POPSLoader/issues/575)). Version 1.2.1 includes the RGB decoder correction; hardware validation is tracked in [STATE.md](STATE.md).
 
 ### BOOT.ELF exit option fails or hangs
 *   Confirm that a valid wLaunchELF executable is installed on your physical memory card at `mc0:/BOOT/BOOT.ELF` or `mc1:/BOOT/BOOT.ELF`.

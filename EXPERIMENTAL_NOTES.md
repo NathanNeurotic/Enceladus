@@ -1,14 +1,16 @@
-# POPSLoader: Experimental Build 🧪
+# POPSLoader 1.2.1 — Experimental Release
 
-**This is the opt-in EXPERIMENTAL channel.** It exists so testers can try riskier changes in isolation, without them reaching anyone who did not ask for it. The public release (**1.2.0**) and the rolling test build are both untouched by anything here.
+At the 1.2.1 release cut, `master`, `dev`, and `experimental` share the same source commit. All three builds show **v1.2.1** in Settings → About; there is no EXP suffix for this cut.
 
-**How to tell you are running it:** Settings, then About: the Version row reads **v1.1.1-dev-EXP93**. The check is simple: a version ending in **-EXP93** = this build; **-EXP92** or lower = an older experimental, please update; plain **v1.1.1-dev** with no EXP on the end = the rolling build; **v1.2.0** = the public release.
+This release includes the RGB PNG alpha correction (#575), MX4SIO cover/details path correction (#570), and SMB POPStarter handoff correction (#571). Host tests and CI do not replace PS2 testing; hardware validation for these changes remains pending. See [STATE.md](STATE.md) and [QA_REGRESSION_MATRIX.md](QA_REGRESSION_MATRIX.md).
 
-**File size check:** if *About* does not show EXP93, the file on your card was not replaced.
-
-**How to go back:** reinstall the latest entry on the Releases page. Nothing here changes your settings, your `POPS` folders, or your games, so switching back and forth is safe.
+The versioned release is [POPSLoader 1.2.1](https://github.com/NathanNeurotic/POPSLoader/releases/tag/1.2.1). Floating channel builds may advance after this cut.
 
 ---
+
+## Historical channel notes
+
+The entries below describe earlier builds and their validation at the time.
 
 ## New in EXP93: cover art works on MX4SIO again
 

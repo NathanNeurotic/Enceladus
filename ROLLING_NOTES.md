@@ -1,14 +1,16 @@
-# POPSLoader — Rolling Test Build ⚙️
+# POPSLoader 1.2.1 — Rolling Release
 
-**This is a bleeding-edge TEST build, not a stable release.** It has everything from the latest stable **plus** features still being tested.
+At the 1.2.1 release cut, `master`, `dev`, and `experimental` share the same source commit. All three builds show **v1.2.1** in Settings → About; there is no EXP suffix for this cut.
 
-**This build names itself, so you never have to guess which one you are on.** Open **Settings**, then **About**: the **Version** row reads **v1.1.1-dev**. One step further into **Credits**, a small grey line at the bottom left says the same (with the boot timing under it). If neither place shows a version at all, you are on the public **1.1.0** release or an older build, and none of the changes below are in it. If the version ends in **-EXP** and a number, you are on the separate experimental build. (The `1.1.1` part only means "newer than 1.1.0". It is not a promise about what the next release will be called.)
+This release includes the RGB PNG alpha correction (#575), MX4SIO cover/details path correction (#570), and SMB POPStarter handoff correction (#571). Host tests and CI do not replace PS2 testing; hardware validation for these changes remains pending. See [STATE.md](STATE.md) and [QA_REGRESSION_MATRIX.md](QA_REGRESSION_MATRIX.md).
 
-Please try it and report anything odd, and say the version you see. To go back to stable, just reinstall the latest entry on the **Releases** page.
-
-Here's everything new or changed **since BETA-9**.
+The versioned release is [POPSLoader 1.2.1](https://github.com/NathanNeurotic/POPSLoader/releases/tag/1.2.1). Floating channel builds may advance after this cut.
 
 ---
+
+## Historical channel notes
+
+The entries below describe earlier builds and their validation at the time.
 
 ## 🎓 Just graduated from the experimental channel (2026-07-20 — the storage wave)
 
