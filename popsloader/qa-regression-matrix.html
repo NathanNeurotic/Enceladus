@@ -67,6 +67,38 @@ Active dev branch is now <strong><code>dev</code></strong> (created off <code>BE
 - release package validation gates,<br />
 - repository automation workflows that are not runtime/hardware gates.</p>
 <p>This file is the authoritative detailed run ledger for CI and hardware outcomes. The other root docs should summarize the active state and point here for chronology.</p>
+<h2 id="issue-575-rgb-png-cover-alpha-2026-09-11">Issue #575: RGB PNG cover alpha (2026-09-11)</h2>
+<table>
+<thead>
+<tr>
+<th>Artifact / environment</th>
+<th>Result</th>
+<th>Evidence / next check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Official 1.2.0; SCPH-70004; SMBv1</td>
+<td>Reporter: RGB invisible, equivalent RGBA visible</td>
+<td><a href="https://github.com/NathanNeurotic/POPSLoader/issues/575">Issue #575</a>; 200x200 non-interlaced PNGs, RGB pixels unchanged by conversion. Same distinction reported on synchronous commit <code>93ae02f</code>.</td>
+</tr>
+<tr>
+<td>Host decoder, Ubuntu / libpng, ASan + UBSan</td>
+<td>PASS: 60 cases</td>
+<td>Real decoder executed for RGB/RGBA, Adam7, 16-bit RGB, grayscale, tRNS and indexed images; size limits and truncated input checked. File/memory and immediate/delayed paths covered. Original decoder fails the first RGB texture-format assertion.</td>
+</tr>
+<tr>
+<td>Local pinned <code>ps2dev/ps2dev:v2.0.0</code> build; base <code>a78bb942</code> plus CT32 correction</td>
+<td>PASS: <code>make clean elfloader all</code>; Lua harness 55/55; docs check</td>
+<td>Test ELF SHA256 <code>28b59a2e9d7afb97c22640c9596022fed53eb450c9d9b5cb2cb40037583c5ec6</code>. Local build, not a published CI artifact.</td>
+</tr>
+<tr>
+<td>CT32 RGB decoder correction</td>
+<td>Unknown (verify on hardware)</td>
+<td>Retest the same RGB/RGBA pair; check RGBA transparency, grayscale and indexed covers, navigating between games and changing video mode. Host decoder checks cannot establish GS rendering or device I/O.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="automated-ci-gates">Automated CI Gates</h2>
 <p>These gates are defined by <code>.github/workflows/compilation.yml</code>. The separate <code>.github/workflows/opencode.yml</code> workflow only runs comment-triggered AI assistance and is not a build, package, runtime, or hardware validation gate.</p>
 <table>
